@@ -12,15 +12,3 @@ Ce projet est une carte interactive visualisant les données de résilience côt
 ## Comment lancer le projet localement
 
 Il suffit d'ouvrir le fichier `index.html` dans votre navigateur web.
-
-## Déploiement sur GitHub Pages
-
-Pour rendre votre carte accessible en ligne via GitHub Pages :
-
-1. Allez dans l'onglet **Settings** (Paramètres) de votre dépôt GitHub.
-2. Dans le menu de gauche, cliquez sur **Pages**.
-3. Sous la section **Build and deployment** > **Source**, sélectionnez **Deploy from a branch**.
-4. Sous **Branch**, sélectionnez **main** (ou `master` selon votre branche principale) et le dossier **/(root)**.
-5. Cliquez sur **Save**.
-
-GitHub va maintenant construire et déployer votre site. Cela peut prendre quelques minutes. Une fois terminé, l'URL de votre site apparaîtra en haut de la page des paramètres Pages (ex: `https://votre-nom-utilisateur.github.io/nom-du-repo/`).
