@@ -1,17 +1,14 @@
-// Initialize Map
-// Centered on Mauritius
 const map = L.map('map').setView([-20.2, 57.5], 10);
 
-// Add Dark Mode Base Layer (CartoDB Dark Matter)
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19
 }).addTo(map);
 
-// --- CSR Data Layers (Quantitative) ---
 
-// --- CSR Data Layers (Quantitative) ---
+
+
 
 // Poches de Pauvreté (Poverty Pockets)
 const povertyZones = [
@@ -59,7 +56,8 @@ const povertyZones = [
     }
 ];
 
-// Flood Prone Areas (Zones Inondables)
+
+
 const floodZones = [
     {
         name: "Port Louis (Canal Dayot)",
@@ -81,7 +79,8 @@ const floodZones = [
     }
 ];
 
-// Coastal Risks (Erosion & Submersion)
+
+
 const coastalRisks = [
     {
         name: "Trou aux Biches",
@@ -103,23 +102,25 @@ const coastalRisks = [
     }
 ];
 
-// Renewable Energy (Solar Farms)
+
+
 const greenEnergy = [
     { name: "Ferme Solaire SARAKO", loc: "Bambous", stats: "15 MW", coords: [-20.262, 57.432] },
-    { name: "Ferme Solaire Henrietta", loc: "Vacoas", stats: "2 MW", coords: [-20.354, 57.579] },
+    { name: "Ferme Solaire Henrietta", loc: "Henrietta", stats: "2 MW", coords: [-20.354, 57.579] },
     { name: "Projet Qair", loc: "Trou d'Eau Douce", stats: "En développement", coords: [-20.242, 57.786] },
     { name: "Projet Qair", loc: "Balaclava", stats: "Solaire PV", coords: [-20.083, 57.516] },
     { name: "Ferme Rivière des Anguilles", loc: "Sud", stats: "Projet Pilote", coords: [-20.485, 57.551] }
 ];
 
-// Historical Floods (Events)
+
+
 const historicalFloods = [
-    { name: "Inondations Meurtrières 2013", loc: "Port Louis", date: "30 Mars 2013", stats: "11 Victimes, 152mm pluie", coords: [-20.162, 57.499] },
-    { name: "Flash Flood 2021", loc: "Bambous Virieux", date: "Avril 2021", stats: "Dégâts matériels majeurs", coords: [-20.345, 57.755] },
+    { name: "Inondations Meurtrières 2013", loc: "Port Louis", date: "30 Mars 2013", stats: "11 Victimes, 150mm/2h", coords: [-20.162, 57.499] },
+    { name: "Flash Flood 2021", loc: "Bambous Virieux", date: "Avril 2021", stats: "408mm pluie, 9 évacués", coords: [-20.345, 57.755] },
     { name: "Inondations Plaine Magnien", loc: "Sud-Est", date: "2022", stats: "Perturbation aéroport", coords: [-20.433, 57.633] }
 ];
 
-// --- Layer Groups ---
+
 
 const povertyLayer = L.layerGroup();
 const floodLayer = L.layerGroup();
@@ -127,7 +128,8 @@ const coastalLayer = L.layerGroup();
 const greenLayer = L.layerGroup();
 const historyLayer = L.layerGroup();
 
-// Populate Poverty Layer
+
+
 povertyZones.forEach(zone => {
     const polygon = L.polygon(zone.coords, {
         color: '#f97316',
@@ -139,7 +141,7 @@ povertyZones.forEach(zone => {
     povertyLayer.addLayer(polygon);
 });
 
-// Populate Flood Layer
+
 floodZones.forEach(zone => {
     const polygon = L.polygon(zone.coords, {
         color: '#3b82f6',
@@ -151,7 +153,7 @@ floodZones.forEach(zone => {
     floodLayer.addLayer(polygon);
 });
 
-// Populate Coastal Layer
+
 coastalRisks.forEach(zone => {
     const polygon = L.polygon(zone.coords, {
         color: '#ef4444',
@@ -163,11 +165,11 @@ coastalRisks.forEach(zone => {
     coastalLayer.addLayer(polygon);
 });
 
-// Populate Green Energy Layer (Green Markers)
+
 greenEnergy.forEach(site => {
     const marker = L.circleMarker(site.coords, {
         radius: 6,
-        fillColor: '#10b981', // Emerald-500
+        fillColor: '#10b981',
         color: '#fff',
         weight: 1,
         opacity: 1,
@@ -177,11 +179,11 @@ greenEnergy.forEach(site => {
     greenLayer.addLayer(marker);
 });
 
-// Populate Historical Floods Layer (Purple Markers)
+
 historicalFloods.forEach(event => {
     const marker = L.circleMarker(event.coords, {
         radius: 6,
-        fillColor: '#8b5cf6', // Violet-500
+        fillColor: '#8b5cf6',
         color: '#fff',
         weight: 1,
         opacity: 1,
@@ -191,14 +193,13 @@ historicalFloods.forEach(event => {
     historyLayer.addLayer(marker);
 });
 
-// Add layers to map by default
+
 povertyLayer.addTo(map);
 floodLayer.addTo(map);
 coastalLayer.addTo(map);
 greenLayer.addTo(map);
 historyLayer.addTo(map);
 
-// --- Event Listeners for Toggles ---
 
 document.getElementById('layer-poverty').addEventListener('change', function (e) {
     if (e.target.checked) {
@@ -240,12 +241,11 @@ document.getElementById('layer-history').addEventListener('change', function (e)
     }
 });
 
-// --- Charts (Chart.js) & Analysis ---
 
 Chart.defaults.color = '#94a3b8';
 Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
 
-// Analysis Panel Logic
+
 const analysisPanel = document.getElementById('analysis-panel');
 const analysisTitle = document.getElementById('analysis-title');
 const analysisText = document.getElementById('analysis-text');
@@ -261,7 +261,7 @@ function showAnalysis(title, text) {
     analysisPanel.classList.remove('hidden');
 }
 
-// Poverty Chart
+
 const ctxPoverty = document.getElementById('povertyChart').getContext('2d');
 const povertyChart = new Chart(ctxPoverty, {
     type: 'doughnut',
@@ -283,7 +283,7 @@ const povertyChart = new Chart(ctxPoverty, {
     }
 });
 
-// Flood Chart
+
 const ctxFlood = document.getElementById('floodChart').getContext('2d');
 const floodChart = new Chart(ctxFlood, {
     type: 'bar',
@@ -306,9 +306,7 @@ const floodChart = new Chart(ctxFlood, {
     }
 });
 
-// --- Unified Click Listeners for All Dashboard Elements ---
 
-// 1. Poverty Chart Click
 document.getElementById('povertyChart').parentElement.addEventListener('click', () => {
     showAnalysis(
         "Disparités Régionales",
@@ -316,7 +314,7 @@ document.getElementById('povertyChart').parentElement.addEventListener('click', 
     );
 });
 
-// 2. Flood Chart Click
+
 document.getElementById('floodChart').parentElement.addEventListener('click', () => {
     showAnalysis(
         "Intensification Hydrologique",
@@ -324,7 +322,7 @@ document.getElementById('floodChart').parentElement.addEventListener('click', ()
     );
 });
 
-// 3. Poverty Stat Card Click
+
 document.getElementById('stat-poverty').addEventListener('click', () => {
     showAnalysis(
         "Poches de Pauvreté",
@@ -332,7 +330,7 @@ document.getElementById('stat-poverty').addEventListener('click', () => {
     );
 });
 
-// 4. Flood Stat Card Click
+
 document.getElementById('stat-flood').addEventListener('click', () => {
     showAnalysis(
         "Statistique : Zones Inondables",
@@ -340,7 +338,7 @@ document.getElementById('stat-flood').addEventListener('click', () => {
     );
 });
 
-// 5. Green Energy Stat Card Click
+
 document.getElementById('stat-green').addEventListener('click', () => {
     showAnalysis(
         "Statistique : Énergie Verte",
@@ -348,7 +346,7 @@ document.getElementById('stat-green').addEventListener('click', () => {
     );
 });
 
-// 6. History Stat Card Click
+
 document.getElementById('stat-history').addEventListener('click', () => {
     showAnalysis(
         "Statistique : Historique Crues",

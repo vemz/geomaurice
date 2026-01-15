@@ -1,6 +1,5 @@
 :root {
     --primary-color: #006994;
-    /* Ocean Blue */
     --accent-color: #00b4d8;
     --bg-dark: #0f172a;
     --text-light: #f8fafc;
@@ -32,7 +31,7 @@ body {
     width: 100%;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 350px;
     background: var(--glass-bg);
@@ -69,7 +68,7 @@ body {
     letter-spacing: 0.1em;
 }
 
-/* Stats Cards */
+
 .stats-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -118,7 +117,7 @@ body {
     margin-top: 0.25rem;
 }
 
-/* Charts */
+
 .charts-container {
     display: flex;
     flex-direction: column;
@@ -132,7 +131,7 @@ body {
     border: 1px solid var(--glass-border);
 }
 
-/* Controls */
+
 .controls {
     display: flex;
     flex-direction: column;
@@ -193,7 +192,7 @@ body {
     color: var(--text-light);
 }
 
-/* Map */
+
 .map-container {
     flex: 1;
     position: relative;
@@ -211,7 +210,7 @@ body {
     text-align: center;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .app-container {
         flex-direction: column-reverse;
@@ -229,7 +228,7 @@ body {
     }
 }
 
-/* Analysis Panel (Modal) */
+
 .analysis-panel {
     position: fixed;
     top: 50%;
