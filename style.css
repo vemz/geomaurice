@@ -338,6 +338,7 @@ body {
 .mapboxgl-ctrl button {
     filter: invert(1);
 }
+
 /* Elevation Display Box */
 .elevation-box {
     position: absolute;
@@ -351,9 +352,40 @@ body {
     font-size: 0.9rem;
     color: var(--text-light);
     font-weight: 500;
-    pointer-events: none; /* Let clicks pass through */
+    pointer-events: none;
+    /* Let clicks pass through */
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     min-width: 120px;
     text-align: center;
+}
+
+.view-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    /* Moved further left */
+    z-index: 2000;
+    /* High z-index to ensure visibility */
+    background: rgba(15, 23, 42, 0.9);
+    /* More opaque */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--accent-color);
+    /* Highlight border */
+    color: white;
+    padding: 0.75rem 1.25rem;
+    /* Larger padding */
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.view-toggle-btn:hover {
+    background: rgba(30, 41, 59, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }

@@ -36,6 +36,50 @@ map.on('load', async () => {
         'star-intensity': 0.5
     });
 
+    // Add 3D Buildings Layer
+    const layers = map.getStyle().layers;
+    const labelLayerId = layers.find(
+        (layer) => layer.type === 'symbol' && layer.layout['text-field']
+    ).id;
+
+    map.addLayer(
+        {
+            'id': 'add-3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+
+                // Use an 'interpolate' expression to
+                // add a smooth transition effect to
+                // the buildings as the user zooms in.
+                'fill-extrusion-height': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05,
+                    ['get', 'height']
+                ],
+                'fill-extrusion-base': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    15,
+                    0,
+                    15.05,
+                    ['get', 'min_height']
+                ],
+                'fill-extrusion-opacity': 0.6
+            }
+        },
+        labelLayerId
+    );
+
     // Altitude Readout Logic
     map.on('mousemove', (e) => {
         // Query elevation at the cursor position
@@ -285,6 +329,40 @@ map.on('load', async () => {
         const visibility = e.target.checked ? 'visible' : 'none';
         if (map.getLayer('layer-metro-line')) {
             map.setLayoutProperty('layer-metro-line', 'visibility', visibility);
+        }
+    });
+
+    // 3D/2D Toggle Logic
+    let is3D = true;
+    const toggleBtn = document.getElementById('toggle-3d');
+
+    toggleBtn.addEventListener('click', () => {
+        is3D = !is3D;
+
+        if (is3D) {
+            // Switch to 3D
+            toggleBtn.textContent = 'Vue 2D'; // Button says what clicking will do (switch to 2D) -> No, usually it describes current state or target state. Let's make it "Vue 2D" to switch TO 2D.
+            // Wait, logic above in plan was: if in 3D, button says "2D View" (to go to 2D).
+
+            map.easeTo({ pitch: 45, bearing: -17.6 });
+
+            if (map.getLayer('add-3d-buildings')) {
+                map.setLayoutProperty('add-3d-buildings', 'visibility', 'visible');
+            }
+            // Restore terrain
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+
+        } else {
+            // Switch to 2D
+            toggleBtn.textContent = 'Vue 3D'; // Button says switch to 3D
+
+            map.easeTo({ pitch: 0, bearing: 0 });
+
+            if (map.getLayer('add-3d-buildings')) {
+                map.setLayoutProperty('add-3d-buildings', 'visibility', 'none');
+            }
+            // Remove terrain for flat view
+            map.setTerrain(null);
         }
     });
 
