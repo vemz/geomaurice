@@ -1,5 +1,5 @@
-// Mapbox Access Token - REPLACE WITH YOUR OWN
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2Vvc2NhbGUiLCJhIjoiY21jcnE0dDNqMHQ4NzJsc2J2Y3NpNXo3bSJ9.Ro-_MZivMzorezAgWhV-sw'; // Placeholder - USER MUST UPDATE
+// Mapbox Access Token
+mapboxgl.accessToken = CONFIG.MAPBOX_TOKEN;
 
 const map = new mapboxgl.Map({
     container: 'map', // container ID
