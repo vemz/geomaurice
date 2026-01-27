@@ -12,8 +12,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-                integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
 
 
         <link rel="stylesheet" href="style.css">
@@ -150,26 +150,28 @@
                                                 (FADs)</span></label>
                                 <label class="toggle"><input type="checkbox" id="layer-districts"><span
                                                 class="slider"></span><span class="label-text">Districts</span></label>
-                        </div>
 
-                        <footer class="sidebar-footer">
-                                <p>Données: GeoPortal, Data.GovMU, StatsMU, BRGM (2025)</p>
-                                <p style="margin-top: 0.5rem;"><a href="sources.md"
-                                                style="color: var(--accent-color); text-decoration: none;">📚 Sources
-                                                complètes</a></p>
-                        </footer>
+
+                                <footer class="sidebar-footer">
+                                        <p>Données: GeoPortal, Data.GovMU, StatsMU, BRGM (2025)</p>
+                                        <p style="margin-top: 0.5rem;"><a href="sources.md"
+                                                        style="color: var(--accent-color); text-decoration: none;">📚
+                                                        Sources
+                                                        complètes</a></p>
+                                </footer>
                 </aside>
 
 
                 <main class="map-container">
                         <div id="map"></div>
+                        <div id="elevation-display" class="elevation-box">Altitude: -- m</div>
                 </main>
         </div>
 
 
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="data.js"></script>
         <script src="app.js?v=6"></script>
 </body>
 

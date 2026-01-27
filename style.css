@@ -299,3 +299,61 @@ body {
     background: var(--accent-color);
     color: white;
 }
+
+/* Mapbox Popup Styles */
+.mapboxgl-popup-content {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px !important;
+    padding: 15px !important;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    max-width: 250px;
+}
+
+.mapboxgl-popup-close-button {
+    color: var(--text-dim) !important;
+    font-size: 16px;
+    right: 5px !important;
+    top: 5px !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+    color: var(--text-light) !important;
+    background: none !important;
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: var(--glass-bg) !important;
+}
+
+/* Mapbox Control Styling */
+.mapboxgl-ctrl-group {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+}
+
+.mapboxgl-ctrl button {
+    filter: invert(1);
+}
+/* Elevation Display Box */
+.elevation-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 120px;
+    text-align: center;
+}

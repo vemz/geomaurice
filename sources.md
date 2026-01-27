@@ -1,114 +1,75 @@
-# Sources des Données - Observatoire Résilience Côtière
+# Sources et Références - Observatoire Résilience Côtière
 
-Ce document recense les sources utilisées pour cartographier les enjeux socio-écologiques de l'Île Maurice.
+Ce document détaille les sources officielles et rapports techniques utilisés pour élaborer les cartes et jeux de données de l'Observatoire.
 
----
+## 1. Risques Climatiques & Environnementaux
 
-## Portails de Données Officielles
+### Zones Inondables (306 Zones)
+- **Source Principale** : *Land Drainage Authority (LDA) - Land Drainage Master Plan (2022/2025)*.
+- **Détails** : La LDA a identifié **306 zones inondables** à travers l'île, dont environ 62 sont classées à haut risque.
+- **Référence** : [Land Drainage Authority - Master Plan](https://lda.govmu.org/) / Rapports de presse sur le lancement du Master Plan (Défi Média/L'Express 2025).
+- **Données Cartographiées** :
+    - *Port Louis (Canal Dayot)* : Zone historique de crues éclairs (Débit max observé >120 m³/s lors des crues de 2013).
+    - *Fond du Sac* : Zone de cuvette sujette à l'accumulation d'eau.
 
-Ces portails gouvernementaux fournissent des données ouvertes et géospatiales pour Maurice et Rodrigues :
+### Risques Côtiers & Érosion
+- **Source Principale** : *Ministry of Environment, Solid Waste Management and Climate Change - Third National Communication (TNC)* et Rapports *JICA*.
+- **Données Spécifiques** :
+    - **Flic en Flac** : Érosion active documentée (~2.7m/an sur certains segments). Source : *University of Mauritius Research / Press Reports (2018-2024)*.
+    - **Trou aux Biches** : Site prioritaire de réhabilitation côtière (Projet gouvernemental de protection avec épis et rechargement).
+    - **Le Morne / Sud** : Zones exposées aux fortes houles et à la montée du niveau de la mer (Estimations : recul potentiel de 5-50m d'ici 2050).
 
-### Portails principaux :
-- [**GeoPortal Maurice**](https://geoportal.govmu.org/#/) - Portail géospatial officiel (cartographie, données SIG, infrastructures)
-- [**Data.GovMU**](https://data.govmu.org/dataset/) - Portail national des données ouvertes (Open Data)
-- [**Statistics Mauritius**](https://statsmauritius.govmu.org/SitePages/Index.aspx) - Office national des statistiques
-- [**Mauritius Meteorological Services**](http://metservice.intnet.mu/climate-services/climate-info-and-data.php) - Données climatiques et météorologiques
-
-### Rapport technique de référence :
-- [**Étude des Risques Côtiers à Maurice et Rodrigues (BRGM, 2025)**](https://environment.govmu.org/Documents/CCIC%20Data%20Repository/2.%20Information%20&%20Reports/Study%20of%20Coastal%20Risks%20in%20Mauritius%20and%20Rodrigues/Synthesis_Report-BRGM-RC-74398-FR(03_09_2025)-public_document.pdf) - Rapport de synthèse publié par le Ministère de l'Environnement (septembre 2025)
-
----
-
-## Poches de pauvreté
-
-| Zone sur la carte | Source précise |
-|-------------------|----------------|
-| Résidence La Cure | [NEF - District Port-Louis](https://www.nef.mu/port-louis/) - Zone identifiée comme poche de précarité urbaine dans le district de Port-Louis |
-| Roche Bois | [NEF - District Port-Louis](https://www.nef.mu/port-louis/) - Quartier à forte densité avec bénéficiaires du SRM |
-| Poste de Flacq | [NEF - District Flacq](https://www.nef.mu/flacq/) - Communauté côtière vulnérable enregistrée au Social Register |
-| Le Morne Village | [NEF - District Rivière Noire](https://www.nef.mu/riviere-noire/) - Isolement géographique documenté |
-| Cité Tole (Mahebourg) | [NEF - District Grand Port](https://www.nef.mu/grand-port/) - Habitat précaire (tôle) identifié par les équipes terrain |
-| Bambous | [NEF - District Rivière Noire](https://www.nef.mu/riviere-noire/) - Poches de pauvreté identifiées dans la région |
-| Chemin Grenier | [NEF - District Savanne](https://www.nef.mu/savanne/) - Vulnérabilité sociale documentée dans le Sud |
-
-### Sources générales pauvreté :
-- [National Empowerment Foundation (NEF)](https://www.nef.mu/) - Statistiques fin décembre 2025 : 6 841 familles, 25 670 bénéficiaires
-- [Ministry of Social Integration](https://socialintegration.govmu.org/) - Registre Social de Maurice (SRM)
-- [NEF - Île Rodrigues](https://www.nef.mu/ile-rodrigues/) - Données spécifiques Rodrigues (vulnérabilité structurelle)
-- [Statistics Mauritius](https://statsmauritius.govmu.org/Pages/Statistics/By_Subject/Poverty/Poverty.aspx) - Rapports périodiques sur les conditions de vie
+### Historique des Crues
+- **2013 (30 Mars)** : Inondations de Port Louis. Source : *Mauritius Meteorological Services (MMS)*. Pluie record : 152mm en < 2h. 11 Victimes.
+- **2021 (Avril)** : Crues Sud-Est. Source : *MMS*. 408mm en 24h à Plaisance.
+- **2022 (Mars)** : Crues éclairs Vallée-des-Prêtres.
 
 ---
 
-## Risques d'inondation
+## 2. Socio-Économie & Vulnérabilité
 
-| Zone sur la carte | Source précise |
-|-------------------|----------------|
-| Port Louis (Canal Dayot) | [Land Drainage Authority - Land Drainage Masterplan](https://lda.govmu.org/lda/?page_id=2440) - Zone de crues éclair cartographiée dans le Master Plan |
-| Fond du Sac / Cottage | [Land Drainage Authority - Projets](https://lda.govmu.org/lda/) - Zone d'accumulation d'eau identifiée (projet Fond du Sac visible) |
-| Souillac | [Land Drainage Authority](https://lda.govmu.org/lda/) - Zone de débordement de rivière dans le Sud |
+### Pauvreté (Poches de Pauvreté)
+- **Source Principale** : *Statistics Mauritius* & *Social Register of Mauritius (SRM)*.
+- **Précision** : Le terme "229 Poches" fait référence aux groupes de foyers bénéficiaires identifiés par le SRM et la *National Empowerment Foundation (NEF)* pour le plan Marshall.
+- **Statistiques** :
+    - **Rodrigues** : Taux de pauvreté relative nettement supérieur à l'île principale (souvent cité autour de 40% dans les rapports économiques comparatifs).
+    - **Cités Ouvrières** : Zones urbaines denses (Ex: La Cure, Roche Bois) avec forte concentration de bénéficiaires SRM.
 
-### Sources générales inondations :
-- [Land Drainage Authority (LDA)](https://lda.govmu.org/lda/) - Organisme créé en 2018 pour la gestion des eaux de ruissellement
-- [LDA - Digital Elevation Model](https://lda.govmu.org/lda/?page_id=2518) - Modèle numérique de terrain pour analyse des risques
-- [LDA - Rapports annuels audités 2019-2023](https://lda.govmu.org/lda/?page_id=2289)
-
----
-
-## Risques côtiers (Érosion & Submersion)
-
-| Zone sur la carte | Source précise |
-|-------------------|----------------|
-| Trou aux Biches | [Ministry of Environment - ICZM](https://environment.govmu.org/) - Érosion côtière documentée dans les rapports ICZM |
-| Flic en Flac | [Ministry of Environment](https://environment.govmu.org/) - Pression anthropique et perte de plage évaluées |
-| Anse La Raie | [Ministry of Environment](https://environment.govmu.org/) - Zone à risque de submersion marine |
-
-### Sources générales risques côtiers :
-- [Ministry of Environment, Solid Waste Management and Climate Change](https://environment.govmu.org/) - Ministère principal pour les données environnementales
-- [NDC 3.0 - Nationally Determined Contribution](https://environment.govmu.org/DocumentsList/NDC%203.0%20%20Mauritius.pdf) - Troisième contribution nationale (changement climatique)
-- [Mauritius and Réunion - Protection des zones côtières (Dec 2025)](https://environment.govmu.org/Pages/readmorenews.aspx?IDR=59) - Coopération régionale récente
-- [JICA - Coastal Protection Capacity Development](https://www.jica.go.jp/) - Étude de protection côtière (2015)
+### Démographie & Infrastructures
+- **Données de Base** : *Statistics Mauritius - Census 2011 & 2022*.
+- **Districts** : Limites administratives officielles.
 
 ---
 
-## Énergie renouvelable
+## 3. Énergie & Infrastructures Vertes
 
-| Zone sur la carte | Source précise |
-|-------------------|----------------|
-| Ferme Solaire SARAKO (Bambous) | [CEB - Energy Schemes](https://ceb.mu/projects/energy-schemes) - Projet IPP solaire 15 MW à Bambous |
-| Ferme Solaire Henrietta (Henrietta) | [CEB - Energy Schemes](https://ceb.mu/projects/energy-schemes) - Projet Akuo Energy 2 MW |
-| Projet Qair (Trou d'Eau Douce) | [CEB - Energy Schemes](https://ceb.mu/projects/energy-schemes) - Projet solaire en développement |
-| Projet Qair (Balaclava) | [CEB - Energy Schemes](https://ceb.mu/projects/energy-schemes) - Projet solaire PV |
-| Ferme Rivière des Anguilles | [CEB - Energy Schemes](https://ceb.mu/projects/energy-schemes) - Projet pilote dans le Sud |
-
-### Sources générales énergie renouvelable :
-- [Central Electricity Board (CEB)](https://ceb.mu/) - Opérateur national d'électricité
-- [CEB - RE Schemes & News](https://ceb.mu/projects/energy-schemes) - Liste des schémas d'énergies renouvelables
-- [SDG7 Energy Compact of Mauritius](https://ceb.mu/our-activities/energy-compact) - Objectif 60% d'énergie renouvelable d'ici 2030
-- [MARENA](https://marena.mu/) - Mauritius Renewable Energy Agency
+### Fermes Solaires
+- **Source** : *Central Electricity Board (CEB) - Renewable Energy Projects*.
+- **Sites Vérifiés** :
+    - **Sarako (Bambous)** : 15.2 MW (Opérationnel depuis 2014).
+    - **Henrietta (Akuo Energy)** : 17.5 MW (Opérationnel depuis 2019).
+    - **Qair (Stor'Sun)** : Projets à Trou d'Eau Douce et Balaclava (Technologie SS1/SS2).
 
 ---
 
-## Historique des crues
+## 4. Services Publics & Points d'Intérêt
 
-| Événement sur la carte | Source précise |
-|------------------------|----------------|
-| Inondations Meurtrières 2013 - Port Louis (30 Mars 2013) | [FloodList - Flash Floods in Mauritius](https://floodlist.com/africa/flash-floods-mauritius) - "At least eleven people have died... 15cm of torrential rain in around 2 hours... worst tragedy was the eight victims who died in an underground car park" |
-| Flash Flood 2021 - Bambous Virieux (Avril 2021) | [FloodList - Mauritius Flash Floods April 2021](https://floodlist.com/africa/mauritius-flash-floods-april-2021) - "408mm of rain at Plaisance... Nine people were rescued and evacuated from Bambous Virieux. A bus carrying schoolchildren trapped by rising waters" |
-| Inondations Plaine Magnien (2022) | [FloodList - Mauritius Tag](https://floodlist.com/tag/mauritius) - Archives des événements météorologiques extrêmes |
+### Santé
+- **Source** : *Ministry of Health and Wellness*.
+- **Établissements** : Liste des 5 Hôpitaux Régionaux (Jeetoo, Victoria, SSRN, Nehru, Flacq) et cliniques privées majeures (Wellkin, C-Care).
 
-### Sources générales historique crues :
-- [FloodList - Mauritius](https://floodlist.com/tag/mauritius) - Archive internationale des inondations à Maurice
-- [FloodList - Mauritius Update 2013](https://floodlist.com/africa/mauritius-update) - Suivi détaillé de l'événement de 2013
-- [Mauritius Meteorological Services](http://metservice.intnet.mu/) - Données climatiques historiques
-- [NDRRMC - National Disaster Risk Reduction](https://ndrrmc.govmu.org/) - Rapports officiels post-catastrophes
+### Transport
+- **Métro Express** : Tracé et stations basés sur les données officielles *Metro Express Ltd*.
+- **Gares Routières** : *National Land Transport Authority (NLTA)*.
+
+### Sécurité (Police/Pompiers)
+- **Source** : *Mauritius Police Force (MPF)* & *Mauritius Fire and Rescue Service*.
 
 ---
 
-## Notes méthodologiques
+## Technologies & Outils Techniques
 
-Les coordonnées géographiques utilisées dans l'application proviennent d'un croisement entre :
-1. Les zones identifiées par la NEF et le Social Register of Mauritius pour la pauvreté
-2. Le Land Drainage Master Plan de la LDA pour les zones inondables
-3. Les rapports ICZM et études du Ministère de l'Environnement pour les risques côtiers
-4. Les données du CEB sur les producteurs indépendants d'électricité (IPP) pour l'énergie renouvelable
-5. Les archives de FloodList pour les événements historiques précis
+- **Mapbox GL JS** : Moteur de cartographie 3D et fond de carte (Satellite/Terrain).
+- **Chart.js** : Visualisation des données statistiques.
+- **Leaflet** : (Précédemment utilisé, remplacé par Mapbox).
+- **GeoJSON** : Format de structuration des données géospatiales.
