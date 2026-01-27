@@ -2,117 +2,175 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Observatoire Résilience Côtière - Maurice</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Observatoire Résilience Côtière - Maurice</title>
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 
-    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="app-container">
+        <div class="app-container">
 
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h1>Observatoire<br><span>Résilience Côtière</span></h1>
-                <p class="subtitle">Île Maurice</p>
-            </div>
+                <aside class="sidebar">
+                        <div class="sidebar-header">
+                                <h1>Observatoire<br><span>Résilience Côtière</span></h1>
+                                <p class="subtitle">Île Maurice</p>
+                        </div>
 
-            <div class="stats-container">
-                <div id="stat-poverty" class="stat-card clickable-card">
-                    <h3>Pauvreté</h3>
-                    <p class="stat-value warning">229</p>
-                    <p class="stat-desc">Poches identifiées</p>
-                </div>
-                <div id="stat-flood" class="stat-card clickable-card">
-                    <h3>Inondations</h3>
-                    <p class="stat-value danger">306</p>
-                    <p class="stat-desc">Zones à risque (LDA)</p>
-                </div>
-                <div id="stat-green" class="stat-card clickable-card">
-                    <h3>Énergie Verte</h3>
-                    <p class="stat-value success">8+</p>
-                    <p class="stat-desc">Projets Solaires</p>
-                </div>
-                <div id="stat-history" class="stat-card clickable-card">
-                    <h3>Historique</h3>
-                    <p class="stat-value info">2013</p>
-                    <p class="stat-desc">Crues Majeures</p>
-                </div>
-            </div>
+                        <div class="stats-container">
+                                <div id="stat-poverty" class="stat-card clickable-card">
+                                        <h3>Pauvreté</h3>
+                                        <p class="stat-value warning">229</p>
+                                        <p class="stat-desc">Poches identifiées</p>
+                                </div>
+                                <div id="stat-flood" class="stat-card clickable-card">
+                                        <h3>Inondations</h3>
+                                        <p class="stat-value danger">306</p>
+                                        <p class="stat-desc">Zones à risque (LDA)</p>
+                                </div>
+                                <div id="stat-green" class="stat-card clickable-card">
+                                        <h3>Énergie Verte</h3>
+                                        <p class="stat-value success">8+</p>
+                                        <p class="stat-desc">Projets Solaires</p>
+                                </div>
+                                <div id="stat-history" class="stat-card clickable-card">
+                                        <h3>Historique</h3>
+                                        <p class="stat-value info">2013</p>
+                                        <p class="stat-desc">Crues Majeures</p>
+                                </div>
+                        </div>
 
-            <div class="charts-container">
-                <div class="chart-wrapper clickable-chart">
-                    <canvas id="povertyChart"></canvas>
-                </div>
-                <div class="chart-wrapper clickable-chart">
-                    <canvas id="floodChart"></canvas>
-                </div>
-            </div>
-
-
-            <div id="analysis-panel" class="analysis-panel hidden">
-                <h3 id="analysis-title">Analyse</h3>
-                <p id="analysis-text">Cliquez sur un graphique pour voir l'analyse détaillée.</p>
-                <button id="close-analysis" class="close-btn">Fermer</button>
-            </div>
-
-            <div class="controls">
-                <h3>Calques RSE & Climat</h3>
-                <label class="toggle">
-                    <input type="checkbox" checked id="layer-poverty">
-                    <span class="slider"></span>
-                    <span class="label-text">Poches de Pauvreté</span>
-                </label>
-                <label class="toggle">
-                    <input type="checkbox" checked id="layer-flood">
-                    <span class="slider"></span>
-                    <span class="label-text">Zones Inondables</span>
-                </label>
-                <label class="toggle">
-                    <input type="checkbox" checked id="layer-coastal">
-                    <span class="slider"></span>
-                    <span class="label-text">Risques Côtiers</span>
-                </label>
-                <label class="toggle">
-                    <input type="checkbox" checked id="layer-green">
-                    <span class="slider"></span>
-                    <span class="label-text">Énergie Renouvelable</span>
-                </label>
-                <label class="toggle">
-                    <input type="checkbox" checked id="layer-history">
-                    <span class="slider"></span>
-                    <span class="label-text">Historique Crues</span>
-                </label>
-            </div>
-
-            <footer class="sidebar-footer">
-                <p>Données: GovMU, Metservice, BRGM</p>
-            </footer>
-        </aside>
+                        <div class="charts-container">
+                                <div class="chart-wrapper clickable-chart">
+                                        <canvas id="povertyChart"></canvas>
+                                </div>
+                                <div class="chart-wrapper clickable-chart">
+                                        <canvas id="floodChart"></canvas>
+                                </div>
+                        </div>
 
 
-        <main class="map-container">
-            <div id="map"></div>
-        </main>
-    </div>
+                        <div id="analysis-panel" class="analysis-panel hidden">
+                                <h3 id="analysis-title">Analyse</h3>
+                                <p id="analysis-text">Cliquez sur un graphique pour voir l'analyse détaillée.</p>
+                                <button id="close-analysis" class="close-btn">Fermer</button>
+                        </div>
+
+                        <div class="controls">
+                                <h3>RSE & Climat</h3>
+                                <label class="toggle"><input type="checkbox" checked id="layer-poverty"><span
+                                                class="slider"></span><span class="label-text">Poches de
+                                                Pauvreté</span></label>
+                                <label class="toggle"><input type="checkbox" checked id="layer-flood"><span
+                                                class="slider"></span><span class="label-text">Zones
+                                                Inondables</span></label>
+                                <label class="toggle"><input type="checkbox" checked id="layer-coastal"><span
+                                                class="slider"></span><span class="label-text">Risques
+                                                Côtiers</span></label>
+                                <label class="toggle"><input type="checkbox" checked id="layer-green"><span
+                                                class="slider"></span><span class="label-text">Énergie
+                                                Renouvelable</span></label>
+                                <label class="toggle"><input type="checkbox" checked id="layer-history"><span
+                                                class="slider"></span><span class="label-text">Historique
+                                                Crues</span></label>
+
+                                <h3>Santé & Social</h3>
+                                <label class="toggle"><input type="checkbox" id="layer-health"><span
+                                                class="slider"></span><span class="label-text">Hôpitaux &
+                                                Cliniques</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-pharmacy"><span
+                                                class="slider"></span><span class="label-text">Pharmacies</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-social"><span
+                                                class="slider"></span><span class="label-text">Centres
+                                                Sociaux</span></label>
+
+                                <h3>Sécurité</h3>
+                                <label class="toggle"><input type="checkbox" id="layer-emergency"><span
+                                                class="slider"></span><span class="label-text">Police &
+                                                Pompiers</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-camera"><span
+                                                class="slider"></span><span class="label-text">Caméras
+                                                Vitesse</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-danger"><span
+                                                class="slider"></span><span class="label-text">Baignade
+                                                Dangereuse</span></label>
+
+                                <h3>Transport</h3>
+                                <label class="toggle"><input type="checkbox" id="layer-metro"><span
+                                                class="slider"></span><span class="label-text">Métro
+                                                (Stations/Ligne)</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-bus"><span
+                                                class="slider"></span><span class="label-text">Bus
+                                                (Arrêts/Routes)</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-transport"><span
+                                                class="slider"></span><span class="label-text">Stations
+                                                Service</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-post"><span
+                                                class="slider"></span><span class="label-text">Bureaux de
+                                                Poste</span></label>
+
+                                <h3>Économie & Tourisme</h3>
+                                <label class="toggle"><input type="checkbox" id="layer-tourist"><span
+                                                class="slider"></span><span class="label-text">Sites
+                                                Touristiques</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-mall"><span
+                                                class="slider"></span><span class="label-text">Shopping
+                                                Malls</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-ict"><span
+                                                class="slider"></span><span class="label-text">Entreprises
+                                                ICT</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-finance"><span
+                                                class="slider"></span><span class="label-text">Finance
+                                                (ATM)</span></label>
+
+                                <h3>Env. / Édu. / Admin</h3>
+                                <label class="toggle"><input type="checkbox" id="layer-education"><span
+                                                class="slider"></span><span class="label-text">Écoles
+                                                Primaires</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-islets"><span
+                                                class="slider"></span><span class="label-text">Parcs
+                                                Îlots</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-utilities"><span
+                                                class="slider"></span><span class="label-text">Services
+                                                (CEB/CWA)</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-fishing"><span
+                                                class="slider"></span><span class="label-text">Pêche
+                                                (FADs)</span></label>
+                                <label class="toggle"><input type="checkbox" id="layer-districts"><span
+                                                class="slider"></span><span class="label-text">Districts</span></label>
+                        </div>
+
+                        <footer class="sidebar-footer">
+                                <p>Données: GeoPortal, Data.GovMU, StatsMU, BRGM (2025)</p>
+                                <p style="margin-top: 0.5rem;"><a href="sources.md"
+                                                style="color: var(--accent-color); text-decoration: none;">📚 Sources
+                                                complètes</a></p>
+                        </footer>
+                </aside>
 
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="app.js"></script>
+                <main class="map-container">
+                        <div id="map"></div>
+                </main>
+        </div>
+
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="app.js?v=6"></script>
 </body>
 
 </html>

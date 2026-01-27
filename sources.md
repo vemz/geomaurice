@@ -4,6 +4,21 @@ Ce document recense les sources utilisées pour cartographier les enjeux socio-�
 
 ---
 
+## Portails de Données Officielles
+
+Ces portails gouvernementaux fournissent des données ouvertes et géospatiales pour Maurice et Rodrigues :
+
+### Portails principaux :
+- [**GeoPortal Maurice**](https://geoportal.govmu.org/#/) - Portail géospatial officiel (cartographie, données SIG, infrastructures)
+- [**Data.GovMU**](https://data.govmu.org/dataset/) - Portail national des données ouvertes (Open Data)
+- [**Statistics Mauritius**](https://statsmauritius.govmu.org/SitePages/Index.aspx) - Office national des statistiques
+- [**Mauritius Meteorological Services**](http://metservice.intnet.mu/climate-services/climate-info-and-data.php) - Données climatiques et météorologiques
+
+### Rapport technique de référence :
+- [**Étude des Risques Côtiers à Maurice et Rodrigues (BRGM, 2025)**](https://environment.govmu.org/Documents/CCIC%20Data%20Repository/2.%20Information%20&%20Reports/Study%20of%20Coastal%20Risks%20in%20Mauritius%20and%20Rodrigues/Synthesis_Report-BRGM-RC-74398-FR(03_09_2025)-public_document.pdf) - Rapport de synthèse publié par le Ministère de l'Environnement (septembre 2025)
+
+---
+
 ## Poches de pauvreté
 
 | Zone sur la carte | Source précise |
