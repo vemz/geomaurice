@@ -29,26 +29,14 @@ Utilisez l'une de ces valeurs pour que le point s'affiche avec la bonne couleur/
 
 | Catégorie (`cat`) | Description |
 | :--- | :--- |
-| `green` | Énergie Verte (Solaire, Éolien) |
-| `history` | Historique des Crues |
-| `health` | Hôpitaux Publics et Privés |
+| `green` | Énergie verte (solaire, éolien) |
+| `history` | Historique des crues |
+| `health` | Hôpitaux publics et privés |
 | `pharmacy` | Pharmacies |
-| `social` | Centres Sociaux |
-| `emergency` | Police, Pompiers |
-| `camera` | Radars de Vitesse |
-| `danger` | Zones de Baignade Dangereuse |
-| `metro` | Stations de Métro |
-| `bus` | Gares Routières |
-| `transport` | Stations Service, Parking |
-| `post` | Bureaux de Poste |
-| `tourist` | Sites Touristiques |
-| `mall` | Centres Commerciaux |
-| `ict` | Entreprises Tech / Cybercity |
-| `finance` | Banques, ATM |
-| `education` | Écoles |
-| `islets` | Îlots (Parcs Nationaux) |
-| `utilities` | Services Publics (Eau, Élec) |
-| `fishing` | Dispositifs de Pêche (FAD) |
+| `social` | Centres sociaux |
+| `emergency` | Police, pompiers |
+| `danger` | Zones de baignade dangereuse |
+| `tourist` | Sites touristiques |
 
 ---
 

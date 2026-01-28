@@ -205,8 +205,7 @@ map.on('load', async () => {
     addGeoJsonLayer('layer-poverty', createPolygonCollection(db.povertyZones), '#f97316');
     addGeoJsonLayer('layer-flood', createPolygonCollection(db.floodZones), '#3b82f6');
     addGeoJsonLayer('layer-coastal', createPolygonCollection(db.coastalRisks), '#ef4444');
-    addGeoJsonLayer('layer-districts', createPolygonCollection(db.districtPolygons), '#94a3b8');
-    map.setPaintProperty('layer-districts', 'fill-opacity', 0.1);
+
 
     // Point Layers
     // Group points by category for layers
@@ -220,46 +219,11 @@ map.on('load', async () => {
     addGeoJsonLayer('layer-social', createFeatureCollection(points.filter(p => p.cat === 'social')), '#db2777', 'circle');
 
     addGeoJsonLayer('layer-emergency', createFeatureCollection(points.filter(p => p.cat === 'emergency')), '#ef4444', 'circle');
-    addGeoJsonLayer('layer-camera', createFeatureCollection(points.filter(p => p.cat === 'camera')), '#f87171', 'circle');
     addGeoJsonLayer('layer-danger', createFeatureCollection(points.filter(p => p.cat === 'danger')), '#b91c1c', 'circle');
 
-    addGeoJsonLayer('layer-metro', createFeatureCollection(points.filter(p => p.cat === 'metro')), '#6366f1', 'circle');
-    addGeoJsonLayer('layer-bus', createFeatureCollection(points.filter(p => p.cat === 'bus')), '#818cf8', 'circle');
-    addGeoJsonLayer('layer-transport', createFeatureCollection(points.filter(p => p.cat === 'transport')), '#4f46e5', 'circle');
-    addGeoJsonLayer('layer-post', createFeatureCollection(points.filter(p => p.cat === 'post')), '#a5b4fc', 'circle');
-
     addGeoJsonLayer('layer-tourist', createFeatureCollection(points.filter(p => p.cat === 'tourist')), '#facc15', 'circle');
-    addGeoJsonLayer('layer-mall', createFeatureCollection(points.filter(p => p.cat === 'mall')), '#eab308', 'circle');
-    addGeoJsonLayer('layer-ict', createFeatureCollection(points.filter(p => p.cat === 'ict')), '#ca8a04', 'circle');
-    addGeoJsonLayer('layer-finance', createFeatureCollection(points.filter(p => p.cat === 'finance')), '#22c55e', 'circle');
 
-    addGeoJsonLayer('layer-education', createFeatureCollection(points.filter(p => p.cat === 'education')), '#14b8a6', 'circle');
-    addGeoJsonLayer('layer-islets', createFeatureCollection(points.filter(p => p.cat === 'islets')), '#0d9488', 'circle');
-    addGeoJsonLayer('layer-utilities', createFeatureCollection(points.filter(p => p.cat === 'utilities')), '#0f766e', 'circle');
-    addGeoJsonLayer('layer-fishing', createFeatureCollection(points.filter(p => p.cat === 'fishing')), '#3b82f6', 'circle');
 
-    // Manual Metro Line (harder to allow generic due to LineString type, usually static or separate file)
-    const metroLineCoords = [
-        [-20.164, 57.500], [-20.190, 57.480], [-20.226, 57.472], [-20.242, 57.474], [-20.265, 57.479],
-        [-20.279, 57.496], [-20.297, 57.496], [-20.319, 57.524]
-    ];
-    map.addSource('layer-metro-line', {
-        'type': 'geojson',
-        'data': {
-            'type': 'Feature',
-            'geometry': {
-                'type': 'LineString',
-                'coordinates': metroLineCoords.map(c => [c[1], c[0]])
-            }
-        }
-    });
-    map.addLayer({
-        'id': 'layer-metro-line',
-        'type': 'line',
-        'source': 'layer-metro-line',
-        'layout': { 'line-join': 'round', 'line-cap': 'round' },
-        'paint': { 'line-color': '#6366f1', 'line-width': 4 }
-    });
 
 
     // Layer Toggling Logic
@@ -300,21 +264,8 @@ map.on('load', async () => {
         ['layer-pharmacy', 'layer-pharmacy'],
         ['layer-social', 'layer-social'],
         ['layer-emergency', 'layer-emergency'],
-        ['layer-camera', 'layer-camera'],
         ['layer-danger', 'layer-danger'],
-        ['layer-metro', 'layer-metro'], // Handled specially below for line
-        ['layer-bus', 'layer-bus'],
-        ['layer-transport', 'layer-transport'],
-        ['layer-post', 'layer-post'],
-        ['layer-tourist', 'layer-tourist'],
-        ['layer-mall', 'layer-mall'],
-        ['layer-ict', 'layer-ict'],
-        ['layer-finance', 'layer-finance'],
-        ['layer-education', 'layer-education'],
-        ['layer-islets', 'layer-islets'],
-        ['layer-utilities', 'layer-utilities'],
-        ['layer-fishing', 'layer-fishing'],
-        ['layer-districts', 'layer-districts']
+        ['layer-tourist', 'layer-tourist']
     ];
 
     // We need to run toggle logic AFTER layers are added.
@@ -324,13 +275,7 @@ map.on('load', async () => {
 
     layersToToggle.forEach(pair => toggleLayer(pair[0], pair[1]));
 
-    // Special handling for Metro Line to toggle with Metro Stations
-    document.getElementById('layer-metro').addEventListener('change', (e) => {
-        const visibility = e.target.checked ? 'visible' : 'none';
-        if (map.getLayer('layer-metro-line')) {
-            map.setLayoutProperty('layer-metro-line', 'visibility', visibility);
-        }
-    });
+
 
     // 3D/2D Toggle Logic
     let is3D = true;
@@ -394,7 +339,7 @@ const povertyChart = new Chart(ctxPoverty, {
     data: {
         labels: ['Rodrigues', 'Port Louis', 'Plaines Wilhems', 'Rural Nord/Est', 'Rural Sud'],
         datasets: [{
-            label: 'Distribution Pauvreté Relative',
+            label: 'Distribution pauvreté relative',
             data: [40, 25, 10, 15, 10],
             backgroundColor: ['#ea580c', '#f97316', '#fb923c', '#fdba74', '#fed7aa'],
             borderWidth: 0
@@ -404,7 +349,7 @@ const povertyChart = new Chart(ctxPoverty, {
         responsive: true,
         plugins: {
             legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } },
-            title: { display: true, text: 'Vulnérabilité par Région (%)' }
+            title: { display: true, text: 'Vulnérabilité par région (%)' }
         }
     }
 });
@@ -415,7 +360,7 @@ const floodChart = new Chart(ctxFlood, {
     data: {
         labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
         datasets: [{
-            label: 'Événements Inondation Majeurs',
+            label: 'Événements inondation majeurs',
             data: [2, 3, 1, 4, 3, 5],
             backgroundColor: '#3b82f6',
             borderRadius: 4
@@ -425,7 +370,7 @@ const floodChart = new Chart(ctxFlood, {
         responsive: true,
         plugins: {
             legend: { display: false },
-            title: { display: true, text: 'Fréquence Inondations (Tendance)' }
+            title: { display: true, text: 'Fréquence inondations (tendance)' }
         },
         scales: { y: { beginAtZero: true } }
     }
@@ -433,42 +378,42 @@ const floodChart = new Chart(ctxFlood, {
 
 document.getElementById('povertyChart').parentElement.addEventListener('click', () => {
     showAnalysis(
-        "Disparités Régionales",
+        "Disparités régionales",
         "Une forte concentration de la pauvreté relative est observée à Rodrigues (40%) et dans les faubourgs de Port-Louis (25%).<br><br>Cette distribution reflète une <i>ségrégation spatiale</i> marquée. L'indice de Gini à Maurice (0.40) masque des inégalités territoriales profondes. La vulnérabilité à Rodrigues est structurelle (isolement, économie de subsistance), tandis qu'à Port-Louis, elle est liée à l'urbanisation rapide et à la précarité de l'emploi informel."
     );
 });
 
 document.getElementById('floodChart').parentElement.addEventListener('click', () => {
     showAnalysis(
-        "Intensification Hydrologique",
+        "Intensification hydrologique",
         "On note une tendance haussière des événements d'inondation majeurs (passant de 2 à 5 par an en 5 ans).<br><br>Cette augmentation est corrélée à deux facteurs : l'imperméabilisation des sols due à l'artificialisation (<i>Urban Sprawl</i>) et l'intensification des précipitations extrêmes liée au changement climatique. Le système de drainage actuel, conçu pour des périodes de retour décennales, est désormais obsolète face à des épisodes de pluies torrentielles (>100mm/24h) de plus en plus fréquents."
     );
 });
 
 document.getElementById('stat-poverty').addEventListener('click', () => {
     showAnalysis(
-        "Poches de Pauvreté",
-        "229 Poches de Pauvreté identifiées.<br><br>Ce chiffre provient du registre social de Maurice (SRM). Il désigne les zones où la concentration de ménages éligibles aux aides sociales est la plus forte. Ces zones cumulent souvent des risques sociaux (chômage) et environnementaux (inondations, insalubrité)."
+        "Poches de pauvreté",
+        "229 Poches de pauvreté identifiées.<br><br>Ce chiffre provient du registre social de Maurice (SRM). Il désigne les zones où la concentration de ménages éligibles aux aides sociales est la plus forte. Ces zones cumulent souvent des risques sociaux (chômage) et environnementaux (inondations, insalubrité)."
     );
 });
 
 document.getElementById('stat-flood').addEventListener('click', () => {
     showAnalysis(
-        "Statistique : Zones Inondables",
-        "<b>Chiffre Clé :</b> 306 Zones à Risque (LDA).<br><br><b>Contexte :</b> La <i>Land Drainage Authority</i> a cartographié ces zones prioritaires. Elles incluent les zones de débordement de rivières, les zones d'accumulation d'eau (cuvettes) et les zones sujettes aux crues éclairs (Flash Floods). 25% de ces zones sont situées en milieu urbain dense."
+        "Statistique : Zones inondables",
+        "<b>Chiffre Clé :</b> 306 Zones à risque (LDA).<br><br><b>Contexte :</b> La <i>Land Drainage Authority</i> a cartographié ces zones prioritaires. Elles incluent les zones de débordement de rivières, les zones d'accumulation d'eau (cuvettes) et les zones sujettes aux crues éclairs (Flash Floods). 25% de ces zones sont situées en milieu urbain dense."
     );
 });
 
 document.getElementById('stat-green').addEventListener('click', () => {
     showAnalysis(
-        "Statistique : Énergie Verte",
-        "<b>Chiffre Clé :</b> 8+ Projets Solaires Majeurs.<br><br><b>Contexte :</b> Maurice vise 60% d'énergie renouvelable d'ici 2030. Les fermes solaires (comme SARAKO à Bambous) et les projets distribués (Qair) sont essentiels pour réduire la dépendance aux énergies fossiles importées et atténuer l'empreinte carbone nationale."
+        "Statistique : Énergie verte",
+        "<b>Chiffre Clé :</b> 8+ Projets solaires majeurs.<br><br><b>Contexte :</b> Maurice vise 60% d'énergie renouvelable d'ici 2030. Les fermes solaires (comme SARAKO à Bambous) et les projets distribués (Qair) sont essentiels pour réduire la dépendance aux énergies fossiles importées et atténuer l'empreinte carbone nationale."
     );
 });
 
 document.getElementById('stat-history').addEventListener('click', () => {
     showAnalysis(
-        "Statistique : Historique Crues",
+        "Statistique : Historique crues",
         "<b>Événement Marquant :</b> 30 Mars 2013.<br><br><b>Contexte :</b> Les inondations meurtrières de Port-Louis (11 victimes) ont marqué un tournant dans la conscience du risque climatique à Maurice. Elles ont révélé la vulnérabilité des infrastructures urbaines face aux pluies torrentielles (>150mm en 2h), un phénomène qui s'intensifie avec le changement climatique."
     );
 });
