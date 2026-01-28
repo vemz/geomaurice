@@ -201,10 +201,13 @@ map.on('load', async () => {
     // Use APP_DATA directly (loaded from data.js)
     const db = APP_DATA;
 
+
     // Polygon Layers
     addGeoJsonLayer('layer-poverty', createPolygonCollection(db.povertyZones), '#f97316');
     addGeoJsonLayer('layer-flood', createPolygonCollection(db.floodZones), '#3b82f6');
     addGeoJsonLayer('layer-coastal', createPolygonCollection(db.coastalRisks), '#ef4444');
+    addGeoJsonLayer('layer-districts', createPolygonCollection(db.districtPolygons), '#94a3b8');
+    map.setPaintProperty('layer-districts', 'fill-opacity', 0.1);
 
 
     // Point Layers
@@ -265,7 +268,8 @@ map.on('load', async () => {
         ['layer-social', 'layer-social'],
         ['layer-emergency', 'layer-emergency'],
         ['layer-danger', 'layer-danger'],
-        ['layer-tourist', 'layer-tourist']
+        ['layer-tourist', 'layer-tourist'],
+        ['layer-districts', 'layer-districts']
     ];
 
     // We need to run toggle logic AFTER layers are added.
