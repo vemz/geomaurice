@@ -341,11 +341,22 @@ const ctxPoverty = document.getElementById('povertyChart').getContext('2d');
 const povertyChart = new Chart(ctxPoverty, {
     type: 'doughnut',
     data: {
-        labels: ['Rodrigues', 'Port Louis', 'Plaines Wilhems', 'Rural Nord/Est', 'Rural Sud'],
+        labels: ['Rodrigues', 'Port Louis', 'Black River', 'Plaines Wilhems', 'Grand Port', 'Flacq', 'Savanne', 'Pamplemousses', 'Rivière du Rempart', 'Moka'],
         datasets: [{
             label: 'Distribution pauvreté relative',
-            data: [40, 25, 10, 15, 10],
-            backgroundColor: ['#ea580c', '#f97316', '#fb923c', '#fdba74', '#fed7aa'],
+            data: [35, 20, 10, 10, 5, 5, 5, 4, 3, 3],
+            backgroundColor: [
+                '#7c2d12', // Rodrigues (Darkest)
+                '#c2410c', // Port Louis
+                '#ea580c', // Black River
+                '#f97316', // Plaines Wilhems
+                '#fb923c', // Grand Port
+                '#fdba74', // Flacq
+                '#fed7aa', // Savanne
+                '#ffedd5', // Pamplemousses
+                '#fff7ed', // Riv du Rempart
+                '#f8fafc'  // Moka (Lightest)
+            ],
             borderWidth: 0
         }]
     },
@@ -353,7 +364,7 @@ const povertyChart = new Chart(ctxPoverty, {
         responsive: true,
         plugins: {
             legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } },
-            title: { display: true, text: 'Vulnérabilité par région (%)' }
+            title: { display: true, text: 'Vulnérabilité par District (%)' }
         }
     }
 });
@@ -382,8 +393,8 @@ const floodChart = new Chart(ctxFlood, {
 
 document.getElementById('povertyChart').parentElement.addEventListener('click', () => {
     showAnalysis(
-        "Disparités régionales",
-        "Une forte concentration de la pauvreté relative est observée à Rodrigues (40%) et dans les faubourgs de Port-Louis (25%).<br><br>Cette distribution reflète une <i>ségrégation spatiale</i> marquée. L'indice de Gini à Maurice (0.40) masque des inégalités territoriales profondes. La vulnérabilité à Rodrigues est structurelle (isolement, économie de subsistance), tandis qu'à Port-Louis, elle est liée à l'urbanisation rapide et à la précarité de l'emploi informel."
+        "Disparités par District",
+        "Une analyse par district révèle des vulnérabilités spécifiques.<br><br><b>Rodrigues (35%)</b> et <b>Port Louis (20%)</b> concentrent la majorité des poches de pauvreté. Le district de <b>Black River (10%)</b> présente également une vulnérabilité notable malgré le développement touristique. Les districts ruraux comme Savanne et Grand Port montrent des poches localisées mais significatives."
     );
 });
 
