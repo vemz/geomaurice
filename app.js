@@ -394,30 +394,4 @@ document.getElementById('floodChart').parentElement.addEventListener('click', ()
     );
 });
 
-document.getElementById('stat-poverty').addEventListener('click', () => {
-    showAnalysis(
-        "Poches de pauvreté",
-        "229 Poches de pauvreté identifiées.<br><br>Ce chiffre provient du registre social de Maurice (SRM). Il désigne les zones où la concentration de ménages éligibles aux aides sociales est la plus forte. Ces zones cumulent souvent des risques sociaux (chômage) et environnementaux (inondations, insalubrité)."
-    );
-});
 
-document.getElementById('stat-flood').addEventListener('click', () => {
-    showAnalysis(
-        "Statistique : Zones inondables",
-        "<b>Chiffre Clé :</b> 306 Zones à risque (LDA).<br><br><b>Contexte :</b> La <i>Land Drainage Authority</i> a cartographié ces zones prioritaires. Elles incluent les zones de débordement de rivières, les zones d'accumulation d'eau (cuvettes) et les zones sujettes aux crues éclairs (Flash Floods). 25% de ces zones sont situées en milieu urbain dense."
-    );
-});
-
-document.getElementById('stat-green').addEventListener('click', () => {
-    showAnalysis(
-        "Statistique : Énergie verte",
-        "<b>Chiffre Clé :</b> 8+ Projets solaires majeurs.<br><br><b>Contexte :</b> Maurice vise 60% d'énergie renouvelable d'ici 2030. Les fermes solaires (comme SARAKO à Bambous) et les projets distribués (Qair) sont essentiels pour réduire la dépendance aux énergies fossiles importées et atténuer l'empreinte carbone nationale."
-    );
-});
-
-document.getElementById('stat-history').addEventListener('click', () => {
-    showAnalysis(
-        "Statistique : Historique crues",
-        "<b>Événement Marquant :</b> 30 Mars 2013.<br><br><b>Contexte :</b> Les inondations meurtrières de Port-Louis (11 victimes) ont marqué un tournant dans la conscience du risque climatique à Maurice. Elles ont révélé la vulnérabilité des infrastructures urbaines face aux pluies torrentielles (>150mm en 2h), un phénomène qui s'intensifie avec le changement climatique."
-    );
-});
